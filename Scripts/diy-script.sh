@@ -4,7 +4,7 @@
 # AutoBuild Actions
 
 Diy_Core() {
-Author=Hyy2001
+Author=CurssedCoffin
 
 Default_File=./package/lean/default-settings/files/zzz-default-settings
 FIRMWARE_SUFFIX=squashfs-sysupgrade.bin
