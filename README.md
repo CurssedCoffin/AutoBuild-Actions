@@ -67,6 +67,8 @@ Github环境配置:
    需要修改所有的option enabled 后0为1，即开机自动挂载所有分区，再找到option target '/mnt' 后改成 '/' ，即将u盘挂载到根目录
    
    重启即可看到可用空间增大了，enjoy ~
+   
+3. 单独编译的包在 ExtraPackages 中，可自行提取，安装。目前有：Netdata，Kodexplorer
 
 鸣谢:
 -
