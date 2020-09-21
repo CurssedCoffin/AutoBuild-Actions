@@ -43,7 +43,7 @@ Github环境配置:
 -
 1. 有时会遇到 `opkg install` 提示Package size dismatch，此时可以通过添加 `--force-checksum` 参数强制不验证MD5值进行安装。
 
-#### 2. 新3通过外接usb扩展系统空间。 
+2. #### 新3通过外接usb扩展系统空间。 
 
    使用 `block info` 来确定你的U盘位置，通常为 /dev/sdax ，其中x可能为空，也可能为数字，以下以 /dev/sda1 为例，若有出入则自行修改相应字段。
    
