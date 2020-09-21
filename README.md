@@ -33,3 +33,8 @@ Github环境配置:
 一些边角料:
 -
 1. 有时会遇到 `opkg install` 提示Package size dismatch，此时可以通过添加 `--force-checksum` 参数强制不验证MD5值进行安装。
+
+鸣谢:
+-
+1. Hyy2001X：https://github.com/Hyy2001X ，这个项目是他的，并且给我提供了很多帮助，真的很多。。
+2. P3TERX：https://github.com/P3TERX ，云编译教程 https://p3terx.com/archives/build-openwrt-with-github-actions.html 十分详细易懂
