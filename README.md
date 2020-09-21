@@ -47,7 +47,7 @@ Github环境配置:
 
    使用 `block info` 来确定你的U盘位置，通常为 /dev/sdax ，其中x可能为空，也可能为数字，以下以 /dev/sda1 为例，若有出入则自行修改相应字段。
    
-   使用 `mkfs.ext4 /dev/sda1` 命令格式化U盘为ext4格式。
+   使用 `mkfs.ext4 /dev/sda1` 命令格式化U盘为ext4格式。若提示找不到命令，则尝试安装e2fsprogs。
    ```
    mount /dev/sda1 /mnt
    mkdir /tmp/cproot
