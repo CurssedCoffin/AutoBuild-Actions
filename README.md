@@ -32,4 +32,4 @@ Github环境配置:
 
 一些边角料:
 -
-   有时会遇到 `opkg install` 提示Package size dismatch，此时可以通过添加 `--force-checksum` 参数强制不验证MD5值进行安装。
+1. 有时会遇到 `opkg install` 提示Package size dismatch，此时可以通过添加 `--force-checksum` 参数强制不验证MD5值进行安装。
