@@ -3,11 +3,11 @@
 # AutoBuild Module by Hyy2001
 # AutoUpdate
 
-Author=Hyy2001
-Version=V2.7-BETA
-Updated=2020.09.19
+Author=CurssedCoffin
+Version=V1.0
+Updated=2020.09.21
 
-Github=https://github.com/Hyy2001X/AutoBuild-Actions
+Github=https://github.com/CurssedCoffin/AutoBuild-Actions
 Github_Tags=$Github/releases/tag/AutoUpdate
 Github_Download=$Github/releases/download/AutoUpdate
 TARGET_PROFILE=d-team_newifi-d2
