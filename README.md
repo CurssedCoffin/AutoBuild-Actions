@@ -3,7 +3,7 @@ Actions for Building OpenWRT
 
 Supported Devices: `d-team_newifi-d2`
 
-编译命令如下:
+本地环境搭建:
 -
 1. 首先装好 Ubuntu 64bit，推荐  Ubuntu  18 LTS x64
 
@@ -20,7 +20,16 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
    make menuconfig
    ```
 
-5. `make -j8 download V=s` 下载dl库（国内请尽量全局科学上网）
+5. `./scripts/diffconfig.sh > defconfig` 生成config差异文件，并将其改名为.config上传到仓库
 
+Github环境配置:
+-
+1. 进入仓库，点右边Settings，然后点Secrets，New Secrets，Name填写RELEASE_TOKEN，Value填你刚获取到的token, token在 https://github.com/settings/tokens/new 生成。
 
-6. 输入 `make -j1 V=s` （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
+2. 在Customize/AutoUpdate.sh中第 6-10 行改为自己的信息。在Scrips/diy-script.sh中第 7 行改作者名，会在固件中显示。
+
+3. 在Scrips/diy-script.sh中 Diy-Part1() 函数中，参照现有 ExtraPackages 语法添加第三方包，并在config文件中添加相应的包，即可将第三方包编译进固件。
+
+一些边角料:
+-
+   有时会遇到 `opkg install` 提示Package size dismatch，此时可以通过添加 `--force-checksum` 参数强制不验证MD5值进行安装。
