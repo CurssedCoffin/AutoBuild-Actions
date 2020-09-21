@@ -34,7 +34,7 @@ env:
   TZ: Asia/Shanghai
   UPLOAD_RELEASE: true
   UPLOAD_FIRMWARE: true
-  UPLOAD_BIN_DIR: false
+  UPLOAD_BIN_DIR: true
 
 jobs:
   build:
