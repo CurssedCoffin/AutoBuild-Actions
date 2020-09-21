@@ -58,7 +58,7 @@ Github环境配置:
    
    使用winscp登入路由器，进入 /etc/config 目录，使用文本编辑器打开fstab文件，找到你挂载的U盘的id，id可以在 `block info` 中看到。
    
-   option target 中引号里的内容改为 / ，将U盘挂载到根目录，并将 option enabled 选项改为1
+   option target 中引号里的内容改为 / ，即将U盘挂载到根目录，并将 option enabled 选项改为1
    
    重启即可看到可用空间增大了，enjoy ~
 
