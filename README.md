@@ -30,9 +30,37 @@ Github环境配置:
 
 3. 在Scrips/diy-script.sh中 Diy-Part1() 函数中，参照现有 ExtraPackages 语法添加第三方包，并在config文件中添加相应的包，即可将第三方包编译进固件。
 
+通过指令更新固件:
+-
+1. 打开路由器后管理界面
+
+2. 打开`系统`-`TTYD终端`
+
+3. 在命令行输入 
+  `curl -s https://raw.githubusercontent.com/CurssedCoffin/AutoBuild-Actions/master/Customize/AutoUpdate.sh | sh`
+
 一些边角料:
 -
 1. 有时会遇到 `opkg install` 提示Package size dismatch，此时可以通过添加 `--force-checksum` 参数强制不验证MD5值进行安装。
+
+2. 新3通过外接usb扩展系统空间。 使用 `block info` 来确定你的U盘位置，通常为 /dev/sdax ，其中x可能为空，也可能为数字，以下以 /dev/sda1 为例，若有出入则自行修改相应字段。
+   
+   使用 `mkfs.ext4 /dev/sda1` 命令格式化U盘为ext4格式。
+   ```
+   mount /dev/sda1 /mnt
+   mkdir /tmp/cproot
+   mount --bind / /tmp/cproot
+   tar -C /tmp/cproot -cvf - . | tar -C /mnt -xvf -
+   sync
+   umount /tmp/cproot
+   block detect > /etc/config/fstab
+   ```
+   
+   使用winscp登入路由器，进入 /etc/config 目录，使用文本编辑器打开fstab文件，找到你挂载的U盘的id，id可以在 `block info` 中看到。
+   
+   option target 中引号里的内容改为 / ，将U盘挂载到根目录，并将 option enabled 选项改为1
+   
+   重启即可看到可用空间增大了，enjoy ~
 
 鸣谢:
 -
