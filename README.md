@@ -55,10 +55,10 @@ Github环境配置:
    umount /tmp/cproot
    block detect > /etc/config/fstab
    ```
+
+   拿出winscp找到/etc/config/fstab，用记事本开始编辑
    
-   使用winscp登入路由器，进入 /etc/config 目录，使用文本编辑器打开fstab文件，找到你挂载的U盘的id，id可以在 `block info` 中看到。
-   
-   option target 中引号里的内容改为 / ，即将U盘挂载到根目录，并将 option enabled 选项改为1
+   需要修改所有的option enabled 后0为1，即开机自动挂载所有分区，再找到option target '/mnt' 后改成 '/' ，即将u盘挂载到根目录
    
    重启即可看到可用空间增大了，enjoy ~
 
