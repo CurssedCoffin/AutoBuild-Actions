@@ -15,6 +15,10 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
 3. 使用 `git clone https://github.com/coolsnowwolf/lede` 命令下载好源代码，然后 `cd lede` 进入目录
 
 4. ```bash
+   cd package
+   git clone https://github.com/kenzok8/openwrt-packages.git
+   git clone https://github.com/kenzok8/small.git
+   cd && cd lede
    ./scripts/feeds update -a
    ./scripts/feeds install -a
    make menuconfig
