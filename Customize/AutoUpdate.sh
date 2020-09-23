@@ -4,14 +4,13 @@
 # AutoUpdate
 
 Author=CurssedCoffin
-Version=V1.0
-Updated=2020.09.21
-
+Version=V1.1
+Updated=2020.09.23
+TARGET_PROFILE=d-team_newifi-d2
 Github=https://github.com/CurssedCoffin/AutoBuild-Actions
+
 Github_Tags=$Github/releases/tag/AutoUpdate
 Github_Download=$Github/releases/download/AutoUpdate
-TARGET_PROFILE=d-team_newifi-d2
-
 clear
 echo -e "Auto-Update Script $Version by $Author\n"
 cd /etc
