@@ -8,7 +8,7 @@ Version=V1.0
 Updated=2020.09.25
 TARGET_PROFILE=d-team_newifi-d2
 FIRMWARE_SUFFIX=bin
-Github=https://github.com/Hyy2001X/AutoBuild-Actions
+Github=https://github.com/CurssedCoffin/AutoBuild-Actions
 
 function TIME() {
 echo -ne "\n[$(date "+%H:%M:%S")] "
