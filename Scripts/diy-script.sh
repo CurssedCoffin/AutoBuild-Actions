@@ -68,9 +68,9 @@ mv2 system package/base-files/files/etc/config
 mv2 AutoUpdate.sh package/base-files/files/bin
 
 ExtraPackages git luci-theme-argon https://github.com/jerrykuku 18.06
-ExtraPackages svn luci-app-adguardhome https://github.com/Lienol/openwrt/trunk/package/diy
-ExtraPackages svn luci-app-smartdns https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t
-ExtraPackages svn smartdns https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t
+# ExtraPackages svn luci-app-adguardhome https://github.com/Lienol/openwrt/trunk/package/diy
+# ExtraPackages svn luci-app-smartdns https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t
+# ExtraPackages svn smartdns https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t
 ExtraPackages git OpenClash https://github.com/vernesong master
 ExtraPackages git luci-app-serverchan https://github.com/tty228 master
 ExtraPackages svn luci-app-socat https://github.com/xiaorouji/openwrt-package/trunk/lienol
