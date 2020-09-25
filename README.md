@@ -30,7 +30,7 @@ Github环境配置:
 -
 1. 进入仓库，点右边Settings，然后点Secrets，New Secrets，Name填写RELEASE_TOKEN，Value填你刚获取到的token, token在 https://github.com/settings/tokens/new 生成。
 
-2. 在Customize/AutoUpdate.sh中第 6-10 行改为自己的信息。在Scrips/diy-script.sh中第 7 行改作者名，会在固件中显示。
+2. 在Customize/AutoUpdate.sh中第 6-11 行改为自己的信息。在Scrips/diy-script.sh中第 7 行改作者名，会在固件中显示。
 
 3. 在Scrips/diy-script.sh中 Diy-Part1() 函数中，参照现有 ExtraPackages 语法添加第三方包，并在config文件中添加相应的包，即可将第三方包编译进固件。
 
