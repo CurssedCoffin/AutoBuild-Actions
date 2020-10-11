@@ -1,4 +1,6 @@
 # AutoBuild-Actions
+项目原作者：[Hyy2001X](https://github.com/Hyy2001X)
+
 Gitub Actions 自动编译 OpenWRT
 
 支持的设备：`x86`、`d-team_newifi-d2`、`phicomm_k2p`
