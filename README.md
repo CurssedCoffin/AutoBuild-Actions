@@ -9,7 +9,7 @@ Gitub Actions 自动编译 OpenWRT
 
     WoL网络唤醒、Socat端口转发、samba网络共享、Serverchan、广告屏蔽大师 Plus +、网易云解锁 GoLang版本
 
-    SSR Plus + （含SSR server）、Openclash （已安装依赖kmod-tun）、[自动更新（luci-app-autoupdate）](https://github.com/Hyy2001X/Openwrt-AutoUpdate)
+    SSR Plus + （含SSR server）、Openclash （已安装依赖kmod-tun）、自动更新（Hyy2001X）
 
 **路由器后台：192.168.1.1    登录密码：password**
 
