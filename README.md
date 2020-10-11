@@ -1,7 +1,17 @@
 # AutoBuild-Actions
-Actions for Building OpenWRT
+Gitub Actions 自动编译 OpenWRT
 
-Supported Devices: `d-team_newifi-d2`
+支持的设备：`x86`、`d-team_newifi-d2`、`phicomm_k2p`
+
+**已安装的服务：**
+
+    多拨、UPNP、mwan3、Aria2、动态dns、硬盘休眠、TTYD终端、KMS服务器、FTP服务器、FRP内网穿透、USB网络共享
+
+    WoL网络唤醒、Socat端口转发、samba网络共享、Serverchan、广告屏蔽大师 Plus +、网易云解锁 GoLang版本
+
+    SSR Plus + （含SSR server）、Openclash （已安装依赖kmod-tun）、[自动更新（luci-app-autoupdate）](https://github.com/Hyy2001X/Openwrt-AutoUpdate)
+
+**路由器后台：192.168.1.1    登录密码：password**
 
 本地环境搭建:
 -
