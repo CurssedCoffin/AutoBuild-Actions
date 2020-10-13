@@ -31,9 +31,9 @@ env:
   FEEDS_CONF_DEFAULT: feeds.conf.default
   CUSTOM_SCRIPT: ./Scripts/diy-script.sh
   TZ: Asia/Shanghai
-  UPLOAD_RELEASE: true
-  UPLOAD_FIRMWARE: true
-  UPLOAD_BIN_DIR: false
+#   UPLOAD_RELEASE: true
+#   UPLOAD_FIRMWARE: true
+#   UPLOAD_BIN_DIR: false
 
 jobs:
   build:
@@ -54,61 +54,61 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
 
-    - name: Clone Openwrt source code
-      run: |
-        git clone -b $REPO_BRANCH $REPO_URL openwrt
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+#     - name: Clone Openwrt source code
+#       run: |
+#         git clone -b $REPO_BRANCH $REPO_URL openwrt
+#         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
-    - name: Run Before-Update-Feeds Script
-      run: |
-        [ -e $FEEDS_CONF_DEFAULT ] && mv $FEEDS_CONF_DEFAULT openwrt/feeds.conf.default
-        chmod +x $CUSTOM_SCRIPT
-        cd openwrt
-        source $GITHUB_WORKSPACE/$CUSTOM_SCRIPT && Diy-Part1
+#     - name: Run Before-Update-Feeds Script
+#       run: |
+#         [ -e $FEEDS_CONF_DEFAULT ] && mv $FEEDS_CONF_DEFAULT openwrt/feeds.conf.default
+#         chmod +x $CUSTOM_SCRIPT
+#         cd openwrt
+#         source $GITHUB_WORKSPACE/$CUSTOM_SCRIPT && Diy-Part1
 
-    - name: Update & Install Feeds
-      run: |
-        cd openwrt
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
+#     - name: Update & Install Feeds
+#       run: |
+#         cd openwrt
+#         ./scripts/feeds update -a
+#         ./scripts/feeds install -a
 
-    - name: Run After-Update-Feeds Script
-      run: |
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        cd openwrt
-        source $GITHUB_WORKSPACE/$CUSTOM_SCRIPT && Diy_Core && Diy-Part2
+#     - name: Run After-Update-Feeds Script
+#       run: |
+#         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+#         cd openwrt
+#         source $GITHUB_WORKSPACE/$CUSTOM_SCRIPT && Diy_Core && Diy-Part2
 
-    - name: Download Package
-      run: |
-        cd openwrt
-        make defconfig
-        make download -j4
-        find dl -size -1024c -exec ls -l {} \;
-        find dl -size -1024c -exec rm -f {} \;
+#     - name: Download Package
+#       run: |
+#         cd openwrt
+#         make defconfig
+#         make download -j4
+#         find dl -size -1024c -exec ls -l {} \;
+#         find dl -size -1024c -exec rm -f {} \;
 
-    - name: Compile the Firmware
-      run: |
-        cd openwrt
-        make -j$(nproc) || make -j1 V=s
+#     - name: Compile the Firmware
+#       run: |
+#         cd openwrt
+#         make -j$(nproc) || make -j1 V=s
 
-    - name: Run After-Compile-OpenWRT Script
-      run: |
-        cd openwrt
-        source $GITHUB_WORKSPACE/$CUSTOM_SCRIPT && Diy_Core && Diy-Part3
+#     - name: Run After-Compile-OpenWRT Script
+#       run: |
+#         cd openwrt
+#         source $GITHUB_WORKSPACE/$CUSTOM_SCRIPT && Diy_Core && Diy-Part3
 
-    - name: Upload Firmware to Artifacts
-      uses: actions/upload-artifact@main
-      if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
-      with:
-        name: OpenWrt_Firmware
-        path: openwrt/bin/Firmware
+#     - name: Upload Firmware to Artifacts
+#       uses: actions/upload-artifact@main
+#       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+#       with:
+#         name: OpenWrt_Firmware
+#         path: openwrt/bin/Firmware
         
-    - name: Upload Firmware Directory to Artifacts
-      uses: actions/upload-artifact@main
-      if: env.UPLOAD_BIN_DIR == 'true' && !cancelled()
-      with:
-        name: OpenWrt_Bin
-        path: openwrt/bin
+#     - name: Upload Firmware Directory to Artifacts
+#       uses: actions/upload-artifact@main
+#       if: env.UPLOAD_BIN_DIR == 'true' && !cancelled()
+#       with:
+#         name: OpenWrt_Bin
+#         path: openwrt/bin
 
     - name: Generate Tag
       id: tag
@@ -118,18 +118,18 @@ jobs:
         echo "::set-env name=FIRMWARE::openwrt/bin/Firmware"
         echo "::set-output name=status::success"
 
-    - name: Upload Firmware to Github Release
-      uses: softprops/action-gh-release@v1
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-      with:
-        tag_name: AutoUpdate
-        body_path: update_log.txt
-        files: ${{ env.FIRMWARE }}/*
+#     - name: Upload Firmware to Github Release
+#       uses: softprops/action-gh-release@v1
+#       if: steps.tag.outputs.status == 'success' && !cancelled()
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+#       with:
+#         tag_name: AutoUpdate
+#         body_path: update_log.txt
+#         files: ${{ env.FIRMWARE }}/*
 
-    - name: Remove Old Artifacts
-      uses: c-hive/gha-remove-artifacts@v1
-      with:
-        age: '1 month'
-        skip-recent: 3
+#     - name: Remove Old Artifacts
+#       uses: c-hive/gha-remove-artifacts@v1
+#       with:
+#         age: '1 month'
+#         skip-recent: 3
