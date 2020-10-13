@@ -19,7 +19,7 @@ on:
 #      - '.config'
 
   schedule:
-    - cron: 0 8 15 * *
+    - cron: 0 2,3 * * *
   
   watch:
     types: [started]
