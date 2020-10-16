@@ -115,7 +115,8 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
         echo "## $(date +"%Y%m%d")-AutoUpdate<br/> 自动编译" > update_log.txt
-        echo "::set-env name=FIRMWARE::openwrt/bin/Firmware"
+        # echo "::set-env name=FIRMWARE::openwrt/bin/Firmware"
+        echo "{FIRMWARE}={openwrt/bin/Firmware}" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
     - name: Upload Firmware to Github Release
