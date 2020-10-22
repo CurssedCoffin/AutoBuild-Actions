@@ -72,6 +72,14 @@ Github环境配置:
    tar -C /tmp/cproot -cvf - . | tar -C /mnt -xvf -
    sync
    umount /tmp/cproot
+   ```
+   如果U盘有两个或以上的分区，还可以设置好交换空间，并注意sda的序号
+   ```
+   mkswap /dev/sda2
+   swapon /dev/sda2
+   ```
+   最后把当前的挂载状态写到fstab文件
+   ```
    block detect > /etc/config/fstab
    ```
 
