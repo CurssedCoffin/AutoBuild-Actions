@@ -6,7 +6,7 @@
 # Modify: Hyy2001X
 #=======================================================
 
-name: AutoBuild OpenWrt
+name: Newifi_D2
 
 on: 
 #  release:
