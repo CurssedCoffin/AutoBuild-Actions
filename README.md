@@ -93,5 +93,6 @@ Github环境配置:
 
 鸣谢:
 -
-1. Hyy2001X：https://github.com/Hyy2001X ，这个项目是他的，并且给我提供了很多帮助，真的很多。。
-2. P3TERX：https://github.com/P3TERX ，云编译教程 https://p3terx.com/archives/build-openwrt-with-github-actions.html 十分详细易懂
+1. [Lean](https://github.com/coolsnowwolf/lede)：项目的基础
+2. [Hyy2001X](https://github.com/Hyy2001X)：这个项目是他的，并且给我提供了很多帮助，真的很多
+3. [P3TERX](https://github.com/P3TERX)：[云编译教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html) 十分详细易懂
